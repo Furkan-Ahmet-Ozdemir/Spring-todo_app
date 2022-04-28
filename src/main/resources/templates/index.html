@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xml:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container-fluid text-center">
+
+    <h1> TO DO APP </h1>
+    <a th:href="@{/lists/new}" class="btn btn-primary m-2" >Create New List</a>
+    <a th:href="@{/items/new}" class="btn btn-primary m-2" >Create New Item</a>
+
+    <table class="table table-bordered table-sm mt-2">
+        <thead>
+        <tr>
+            <th> Number </th>
+            <th> List Name </th>
+            <th> Item Name </th>
+            <th> Description </th>
+            <th> Update </th>
+            <th> Delete </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="l : ${listLists}" th:field="${l}">
+            <td th:text="${lStat.index+1}"></td>
+            <td style="color: blue;text-transform:capitalize;font-size: large;font-weight: bold" th:text="${l.list.listName}"></td>
+            <td th:text="${l.itemName}"></td>
+            <td th:text="${l.description}"></td>
+            <td>
+                <a th:href="@{'/items/edit/'+${l.id}}"  class="btn btn-primary" > Edit </a>
+            </td>
+            <td>
+                <a th:href="@{'/items/delete/'+${l.id}}" class="btn btn-danger" > Delete </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
+
+
+
+
