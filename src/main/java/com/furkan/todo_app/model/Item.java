@@ -31,6 +31,9 @@ public class Item {
         this.list = list;
     }
 
+    public Item(Item item) {
+    }
+
 
     public Integer getId() {
         return id;

@@ -29,6 +29,7 @@ public class List {
         this.listName = listName;
     }
 
+
     public Integer getId() {
         return id;
     }
